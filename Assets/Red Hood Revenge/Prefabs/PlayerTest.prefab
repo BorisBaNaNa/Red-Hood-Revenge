@@ -94,7 +94,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7203503177297337421}
   - component: {fileID: -3834292868376402208}
-  - component: {fileID: -5671796872952952871}
   - component: {fileID: -4343208880920412062}
   m_Layer: 3
   m_Name: PlayerTest
@@ -135,27 +134,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 1}
   m_Size: {x: 1, y: 2}
   m_Direction: 0
---- !u!50 &-5671796872952952871
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5856491245938970019}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
 --- !u!114 &-4343208880920412062
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,6 +153,6 @@ MonoBehaviour:
   MoveSpeed: 5
   accelerationTimeAirborne: 0.2
   accelerationTimeGrounded: 0.1
-  MaxJumpHeight: 15
-  MinJumpHeight: 5
-  MaxHeath: 0
+  MaxJumpHeight: 10
+  MinJumpHeight: 2
+  MaxHealth: 0
