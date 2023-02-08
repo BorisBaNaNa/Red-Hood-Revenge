@@ -73,7 +73,6 @@ public class PlayerController : MonoBehaviour
     private void Initialize()
     {
         _input = new InputActions();
-        _rigidbody = GetComponent<Rigidbody2D>();
         _capsuleCollider = GetComponent<CapsuleCollider2D>();
 
     }
