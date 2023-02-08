@@ -7,33 +7,28 @@ using UnityEngine.Windows;
 
 public class PlayerController : MonoBehaviour
 {
-    public bool IsJumping => _velocity.y > 0f;
-    public bool IsFalling => _velocity.y < 0f;
     public bool IsGraund;
 
     public LayerMask GraundMask;
     public float MoveSpeed = 3;
-    public float accelerationTimeAirborne = .2f;
-    public float accelerationTimeGrounded = .1f;
+    [Range(0, 1)]
+    public float inverseDrag = 0.9f;
 
-    public float MaxJumpHeight = 5;
-    public float MinJumpHeight = 0.5f;
+    public float JumpHeight = 20;
 
     public float MaxHeath;
     public float Heath { get; private set; }
 
     private float _currentHeath;
     private InputActions _input;
-    private Vector2 _velocity;
-    private float _velocityXSmoothing;
     private CapsuleCollider2D _capsuleCollider;
+    private Rigidbody2D _rigidbody;
 
     private void Awake()
     {
         Initialize();
+        InitializeInput();
 
-        _input.Player.Jump.performed += _ => StartJump(); 
-        _input.Player.Jump.canceled += _ => StopJump(); 
     }
 
     private void OnEnable()
@@ -46,19 +41,34 @@ public class PlayerController : MonoBehaviour
         _input.Player.Disable();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         Vector2 dir = _input.Player.Move.ReadValue<Vector2>();
 
-        ApplySmooth(dir);
-        ApplyGravity();
+        MoveAndApplyDrag(dir);
 
-        transform.Translate(_velocity * Time.deltaTime);
+        UpdateIsGraund();
     }
 
-    private void FixedUpdate()
+    private void Initialize()
     {
-        UpdateIsGraund();
+        _input = new InputActions();
+        _rigidbody = GetComponent<Rigidbody2D>();
+        _capsuleCollider = GetComponent<CapsuleCollider2D>();
+    }
+
+    private void InitializeInput()
+    {
+        _input.Player.Jump.performed += _ => StartJump();
+        _input.Player.Jump.canceled += _ => StopJump();
+    }
+
+    private void MoveAndApplyDrag(Vector2 dir)
+    {
+        var velocity = _rigidbody.velocity;
+        velocity.x += dir.x * MoveSpeed * Time.fixedDeltaTime;
+        velocity.x *= inverseDrag;
+        _rigidbody.velocity = velocity;
     }
 
     private void UpdateIsGraund()
@@ -66,43 +76,14 @@ public class PlayerController : MonoBehaviour
         float radius = _capsuleCollider.size.x * 0.5f;
         Vector2 circleCenter = new(transform.position.x, transform.position.y + radius - 0.01f);
         IsGraund = Physics2D.OverlapCircle(circleCenter, radius, GraundMask);
-
-        //Vector2 circleCenter = transform.TransformPoint(new Vector3(0, _capsuleCollider.size.x));
-        //IsGraund = Physics2D.CircleCast(circleCenter, _capsuleCollider.size.x, -Vector2.up, 0.01f);
-    }
-
-    private void ApplySmooth(Vector2 dir)
-    {
-        float targetVelocityX = dir.x * MoveSpeed;
-        _velocity.x = Mathf.SmoothDamp(_velocity.x, targetVelocityX, ref _velocityXSmoothing, IsGraund ? accelerationTimeGrounded : accelerationTimeAirborne);
-    }
-
-    private void ApplyGravity()
-    {
-        if (!IsJumping && !IsGraund)
-            _velocity.y = 0f;
-        else
-            _velocity += Physics2D.gravity * 2 * Time.deltaTime;
     }
 
     private void StartJump()
     {
         if (!IsGraund) return;
 
-        _velocity.y += Mathf.Sqrt(MaxJumpHeight * -Physics2D.gravity.y);
+        _rigidbody.AddForce(new Vector2(0, JumpHeight), ForceMode2D.Impulse);
     }
 
-    private void StopJump()
-    {
-        if (!IsJumping || IsGraund) return;
-
-        _velocity.y = 0;
-    }
-
-    private void Initialize()
-    {
-        _input = new InputActions();
-        _capsuleCollider = GetComponent<CapsuleCollider2D>();
-
-    }
+    private void StopJump() { }
 }
