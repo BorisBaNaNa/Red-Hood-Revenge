@@ -1,0 +1,12 @@
+    
+	//////// 2D ИГРА ПРО КРАСНОГО ЧЕЛИКА | RAD HOOD REVENGE////////////////////
+	// ПРОВЕРКА НАХОЖДЕНИЯ НА ЗЕМЛЕ, СОЗДАНИЕ СФЕРЫ КОЛЛАЙДЕРА
+	private void UpdateIsGraund()
+    {
+        float radius = _capsuleCollider.size.x * 0.5f;
+        Vector2 circleCenter = new(transform.position.x, transform.position.y + radius - 0.01f);
+        IsGraund = Physics2D.OverlapCircle(circleCenter, radius);
+
+        //Vector2 circleCenter = transform.TransformPoint(new Vector3(0, _capsuleCollider.size.x));
+        //IsGraund = Physics2D.CircleCast(circleCenter, _capsuleCollider.size.x, -Vector2.up, 0.01f);
+    }
