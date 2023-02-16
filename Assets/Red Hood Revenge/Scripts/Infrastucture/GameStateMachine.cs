@@ -1,16 +1,21 @@
-﻿using System.Collections.Generic;
+﻿using Cinemachine;
+using System.Collections.Generic;
 using System.Linq;
 
 public class GameStateMachine : IStateSwitcher  
 {
     private readonly List<IState> _states;
-    IState _currentState;
-    public GameStateMachine(FactoryPlayer factoryPlayer)
+    private IState _currentState;
+    public GameStateMachine(CinemachineVirtualCamera virtualCamera)
     {
         _states = new List<IState>
         {
             new BoostraperState(this),
-            new LoadLevelRecourceSate(this, factoryPlayer),
+            new LoadLevelRecourceState(this, virtualCamera),
+            new MenuState(this),
+            new PlayingState(this),
+            new DeadState(this),
+            new FinishState(this),
         };
     }
 

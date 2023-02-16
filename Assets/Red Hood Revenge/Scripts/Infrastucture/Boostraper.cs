@@ -1,3 +1,4 @@
+using Cinemachine;
 using System;
 using System.Collections;
 using UnityEngine;
@@ -6,12 +7,14 @@ public class Boostraper : MonoBehaviour
 {
     [SerializeField]
     private GameObject _playerPrefab;
+    [SerializeField]
+    private CinemachineVirtualCamera _virtualCamera;
 
     void Start()
     {
         InitializeServices();
 
-        GameStateMachine game = new(AllServices.Instance.GetService<FactoryPlayer>());
+        GameStateMachine game = new GameStateMachine(_virtualCamera);
         game.StateSwitch<BoostraperState>();
     }
 

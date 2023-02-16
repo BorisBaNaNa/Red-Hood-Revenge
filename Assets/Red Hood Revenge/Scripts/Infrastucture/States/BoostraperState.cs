@@ -11,7 +11,7 @@ internal class BoostraperState : IState
 
     public void Enter()
     {
-        _stateSwitcher.StateSwitch<LoadLevelRecourceSate>();
+        _stateSwitcher.StateSwitch<LoadLevelRecourceState>();
     }
 
     public void Exit()
