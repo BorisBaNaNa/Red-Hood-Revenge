@@ -12,9 +12,14 @@ public class RangeAttack : MonoBehaviour
     public bool inverseDirection = false;
     #endregion
 
-    public int BulletCount { get; set; } = 10;
+    public int BulletCount { get; set; } = 100;
 
     float nextFire = 0;
+
+    private void Awake()
+    {
+        BulletCount = AllServices.Instance.GetService<GameManager>().Bullet;
+    }
 
     public bool Fire()
     {
@@ -38,7 +43,7 @@ public class RangeAttack : MonoBehaviour
         if (inverseDirection)
             direction *= -1;
 
-        var projectile = (Projectile)Instantiate(Projectile, FirePoint.position, Quaternion.identity);
+        var projectile = AllServices.Instance.GetService<FactoryProjectile>().BuildProjectile<SimpleProjectile>(FirePoint.position);
 
         projectile.Initialize(gameObject, direction, Vector2.zero);
     }

@@ -4,18 +4,19 @@ using System.Linq;
 
 public class GameStateMachine : IStateSwitcher  
 {
-    private readonly List<IState> _states;
-    private IState _currentState;
-    public GameStateMachine(CinemachineVirtualCamera virtualCamera)
+    public string CurrentState => _currentState.GetType().ToString();
+
+    private readonly List<IGameState> _states;
+    private IGameState _currentState;
+    public GameStateMachine()
     {
-        _states = new List<IState>
+        _states = new List<IGameState>
         {
             new BoostraperState(this),
-            new LoadLevelRecourceState(this, virtualCamera),
-            new MenuState(this),
+            new MainMenuState(this),
+            new LoadLevelRecourceState(this),
             new PlayingState(this),
-            new DeadState(this),
-            new FinishState(this),
+            new PausedState(this),
         };
     }
 

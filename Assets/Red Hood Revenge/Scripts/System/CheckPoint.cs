@@ -11,14 +11,6 @@ public class CheckPoint : MonoBehaviour {
 		listListener = new List<IPlayerRespawnListener> ();
 	}
 
-	public void PlayerHitCheckPoint(){}
-
-	private IEnumerator PlayerHitCheckPointCo(int bonus){
-		yield break;
-	}
-
-	public void PlayerLeftCheckPoint(){}
-
 	public void SpawnPlayer(Player Player){
 		Player.RespawnAt (transform.position);
 
@@ -27,7 +19,7 @@ public class CheckPoint : MonoBehaviour {
 		}
 	}
 
-	public void AssignOnjectToCheckPoint(IPlayerRespawnListener listener){
+	public void AssignObjectToCheckPoint(IPlayerRespawnListener listener){
 		listListener.Add (listener);
 	}
 }

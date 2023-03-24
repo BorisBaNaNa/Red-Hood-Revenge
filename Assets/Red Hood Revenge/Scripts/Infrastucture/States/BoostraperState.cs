@@ -1,17 +1,17 @@
 ﻿using UnityEngine;
 
-internal class BoostraperState : IState
+internal class BoostraperState : IGameState
 {
-    IStateSwitcher _stateSwitcher;
+    readonly GameStateMachine _stateMachine;
 
-    public BoostraperState(IStateSwitcher stateSwitcher)
+    public BoostraperState(GameStateMachine stateMachine)
     {
-        _stateSwitcher = stateSwitcher;
+        _stateMachine = stateMachine;
     }
 
     public void Enter()
     {
-        _stateSwitcher.StateSwitch<LoadLevelRecourceState>();
+        _stateMachine.StateSwitch<MainMenuState>();
     }
 
     public void Exit()

@@ -1,20 +1,16 @@
-﻿#define NOT_IS_DEL_TRASH
-
-using Cinemachine;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.InputSystem.XR;
-using static Player;
 
 public class PlayerStateMachine : IStateSwitcher
 {
     public readonly Player Player;
     public Action CurrentAction;
+    public Action Jump;
     public bool ThisStateIsActive;
 
-    public bool ThisStateIsEnd => _currentState is DeadState || _currentState is FinishState;
+    public bool ThisStateIsEnd => _currentState is DeathState || _currentState is FinishState;
 
     private readonly List<IState> _states;
     private IState _currentState;
@@ -47,7 +43,7 @@ public class PlayerStateMachine : IStateSwitcher
         if (ThisStateIsEnd && newState is not RespawnState)
             return;
 
-        if (ThisStateIsActive && IsAttackState(newState))
+        if (ThisStateIsActive/* && IsAttackState(newState)*/)
             return;
 
         if (_currentState is SlideState && IsAttackState(newState))
@@ -60,6 +56,9 @@ public class PlayerStateMachine : IStateSwitcher
 
     public void StateControl()
     {
+        if (ThisStateIsEnd)
+            return;
+
         if (Player.IsGrounded && !Player.WasGrounded && Player.IsHardLand)
             TrySetState<LandState>();
         else if (Mathf.Abs(Player.Velocity.x) < 1 && Player.Velocity.y == 0)

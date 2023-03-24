@@ -24,8 +24,23 @@ MonoBehaviour:
     multiplyMaterials: []
     screenMaterials: []
   skeletonDataModifiers: []
-  fromAnimation: []
-  toAnimation: []
-  duration: []
+  fromAnimation:
+  - idle
+  - jump_in_air
+  - wall
+  - wall2
+  - jump_in_air
+  toAnimation:
+  - range_attack
+  - wall
+  - wall2
+  - wall
+  - jump_down_epic
+  duration:
+  - 0.05
+  - 0.05
+  - 0.08
+  - 0.08
+  - 0.05
   defaultMix: 0.2
   controller: {fileID: 0}

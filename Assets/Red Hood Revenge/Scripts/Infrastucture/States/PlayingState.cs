@@ -1,4 +1,4 @@
-﻿public class PlayingState : IState
+﻿public class PlayingState : IGameState
 {
     private IStateSwitcher _stateSwitcher;
 
@@ -9,11 +9,12 @@
 
     public void Enter()
     {
-        throw new System.NotImplementedException();
+        AllServices.Instance.GetService<LevelManager>().StartTimer();
+        AllServices.Instance.GetService<LevelManager>().Player.Inputs.Player.Enable();
     }
 
     public void Exit()
     {
-        throw new System.NotImplementedException();
+        AllServices.Instance.GetService<LevelManager>().Player.Inputs.Player.Disable();
     }
 }

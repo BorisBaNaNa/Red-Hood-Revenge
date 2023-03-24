@@ -10,7 +10,7 @@ public class HealthBar : MonoBehaviour {
 
 
 	void Start () {
-		player = FindObjectOfType<Player> ();
+		player = AllServices.Instance.GetService<LevelManager>().Player;
 	}
 	
 	// Update is called once per frame

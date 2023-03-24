@@ -2,13 +2,14 @@
 
 public class FactoryPlayer : IService
 {
-    GameObject _playerPrefab;
+    readonly Player _playerPrefab;
 
-    public FactoryPlayer(GameObject playerPrefab)
+    public FactoryPlayer(Player playerPrefab)
     {
         _playerPrefab = playerPrefab;
     }
 
-    public GameObject BuildPlayer(Vector3 at)
-        => Object.Instantiate(_playerPrefab, at, Quaternion.identity);
+    public Player BuildPlayer(Vector3 at) => Object.Instantiate(_playerPrefab, at, Quaternion.identity);
+
+    public Player BuildPlayer(Transform at) => Object.Instantiate(_playerPrefab, at.position, at.rotation);
 }

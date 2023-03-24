@@ -1,9 +1,37 @@
 
 Red_Hood.png
-size: 2012,1704
+size: 2012,1886
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
+1
+  rotate: false
+  xy: 154, 1794
+  size: 205, 90
+  orig: 205, 90
+  offset: 0, 0
+  index: -1
+3
+  rotate: false
+  xy: 2, 1830
+  size: 150, 54
+  orig: 150, 54
+  offset: 0, 0
+  index: -1
+4
+  rotate: false
+  xy: 361, 1794
+  size: 205, 90
+  orig: 205, 90
+  offset: 0, 0
+  index: -1
+5_
+  rotate: false
+  xy: 568, 1704
+  size: 962, 180
+  orig: 962, 180
+  offset: 0, 0
+  index: -1
 BODY
   rotate: true
   xy: 639, 2

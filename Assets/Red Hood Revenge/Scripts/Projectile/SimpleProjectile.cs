@@ -9,11 +9,7 @@ public class SimpleProjectile : Projectile, ICanTakeDamage
 	public float timeToLive;
 
 	public AudioClip soundHitEnemy;
-	[Range(0,1)]
-	public float soundHitEnemyVolume = 0.5f;
 	public AudioClip soundHitNothing;
-	[Range(0,1)]
-	public float soundHitNothingVolume = 0.5f;
 
 	
 	// Update is called once per frame
@@ -45,20 +41,20 @@ public class SimpleProjectile : Projectile, ICanTakeDamage
 			}
 		}
 
-		SoundManager.PlaySfx (soundHitNothing, soundHitNothingVolume);
+		SoundManager.PlaySfx (soundHitNothing);
 		DestroyProjectile ();
 	}
 
 	protected override void OnCollideOther (Collider2D other)
 	{
-		SoundManager.PlaySfx (soundHitNothing, soundHitNothingVolume);
+		SoundManager.PlaySfx (soundHitNothing);
 		DestroyProjectile ();
 	}
 
 	protected override void OnCollideTakeDamage (Collider2D other, ICanTakeDamage takedamage)
 	{
 		takedamage.TakeDamage (Damage, Vector2.zero, gameObject);
-		SoundManager.PlaySfx (soundHitEnemy, soundHitEnemyVolume);
+		SoundManager.PlaySfx (soundHitEnemy);
 		DestroyProjectile ();
 	}
 }

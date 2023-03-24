@@ -4,3 +4,7 @@
 
     void Exit();
 }
+
+public interface IGameState : IState { }
+
+public interface IPlayerState : IState { }
