@@ -1922,7 +1922,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 540b8de5abf1eac4db268910885b0cc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerPrefab: {fileID: 4663989067573361781, guid: 078b4e0dcb1df774997f3bc08c0d4741, type: 3}
+  _playerPrefabs:
+  - {fileID: 4663989067573361781, guid: 078b4e0dcb1df774997f3bc08c0d4741, type: 3}
   _projectilePrefab: {fileID: 5193103851577299235, guid: cd4ebc00e268f6d4cb3942e96842b542, type: 3}
   _soundManagerPrefab: {fileID: 3844824364995474291, guid: eced66aff8ac2c34783715a68405606c, type: 3}
   _gameManagerPrefab: {fileID: 2327334521279739681, guid: 76561b22561ae4043bf0012a75971add, type: 3}

@@ -1,12 +1,13 @@
 using Cinemachine;
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Boostraper : MonoBehaviour
 {
     [SerializeField]
-    private Player _playerPrefab;
+    private List<Player> _playerPrefabs;
     [SerializeField]
     private Projectile _projectilePrefab;
     [SerializeField]
@@ -39,12 +40,16 @@ public class Boostraper : MonoBehaviour
         _gameManager.Initialize(_stateMachine);
         AllServices.Instance.RegisterService(_gameManager);
 
-        Instantiate(_soundManagerPrefab);
+        SoundManager soundManager = Instantiate(_soundManagerPrefab);
+        soundManager.Initialize();
+        AllServices.Instance.RegisterService(soundManager);
     }
 
     private void InitializeServices()
     {
-        AllServices.Instance.RegisterService(new FactoryPlayer(_playerPrefab));
+        AllServices.Instance.RegisterService(new FactoryPlayer(_playerPrefabs));
+        FactoryPlayer.SetSpawnPlayer(SaveInfoManager.LoadChoosenCharacterID());
+
         AllServices.Instance.RegisterService(new FactoryProjectile(_projectilePrefab));
     }
 }

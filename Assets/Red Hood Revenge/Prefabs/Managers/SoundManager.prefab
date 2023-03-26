@@ -179,11 +179,11 @@ MonoBehaviour:
   MusicSource: {fileID: 3844824365690789226}
   SoundVolParametr: SoundVol
   SoundSource: {fileID: 3844824364726704428}
-  musicsMenu: {fileID: 0}
-  musicsGame: {fileID: 0}
-  soundClick: {fileID: 0}
-  soundGamefinish: {fileID: 0}
-  soundGameover: {fileID: 0}
+  MusicsMenu: {fileID: 8300000, guid: f36703e7bab8e11489cd53cf4fa907ab, type: 3}
+  MusicsGame: {fileID: 8300000, guid: a490005d76aa2ec4384b4ee62936a957, type: 3}
+  SoundClick: {fileID: 8300000, guid: 1bdf68c1167b93344a584ae6d6ccc15c, type: 3}
+  SoundGamefinish: {fileID: 0}
+  SoundGameover: {fileID: 0}
 --- !u!1 &3844824365690789220
 GameObject:
   m_ObjectHideFlags: 0
@@ -230,7 +230,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

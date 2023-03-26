@@ -55,13 +55,12 @@ public class SoundManager : MonoBehaviour, IService
 
     private float _valMultiplier = 20f;
 
-    void Awake()
+    public void Initialize()
     {
         if (MusicSource == null || SoundSource == null)
             Debug.LogError("Sound is not initialized!");
 
         DontDestroyOnLoad(gameObject);
-        AllServices.Instance.RegisterService(this);
     }
 
     public static void PlaySfx(AudioClip clip)

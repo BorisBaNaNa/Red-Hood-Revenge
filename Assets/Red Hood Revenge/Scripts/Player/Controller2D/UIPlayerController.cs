@@ -21,6 +21,8 @@ public class UIPlayerController : MonoBehaviour
 
     private void Update()
     {
+        if (!_levelManager) return;
+
         RangeAttackBtn.interactable = _levelManager.BulletCount > 0;
     }
 
@@ -59,7 +61,10 @@ public class UIPlayerController : MonoBehaviour
     private void Initialize()
     {
         _levelManager = AllServices.Instance.GetService<LevelManager>();
-        _player = _levelManager.Player;
+        if (_levelManager)
+            _player = _levelManager.Player;
+        else
+            _player = FindObjectOfType<Player>();
         _playerRangeAttackRate = _player.GetComponent<RangeAttack>().fireRate;
         _playerMeleeAttackRate = _player.GetComponent<MeleeAttack>().attackRate;
     }

@@ -24,6 +24,7 @@ internal class LoadLevelRecourceState : IGameState
         SetupVirtualCamera(player, levelManager);
 
         GameManager.SwichGameState<PausedState>();
+        SoundManager.PlayMusic(AllServices.Instance.GetService<SoundManager>().MusicsGame);
     }
 
     public void Exit()

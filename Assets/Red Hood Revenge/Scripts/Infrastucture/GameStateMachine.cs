@@ -17,6 +17,7 @@ public class GameStateMachine : IStateSwitcher
             new LoadLevelRecourceState(this),
             new PlayingState(this),
             new PausedState(this),
+            new LoadSceneState(this),
         };
     }
 

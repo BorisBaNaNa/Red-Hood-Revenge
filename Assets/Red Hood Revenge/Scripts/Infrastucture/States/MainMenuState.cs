@@ -9,7 +9,7 @@
 
     public void Enter()
     {
-
+        SoundManager.PlayMusic(AllServices.Instance.GetService<SoundManager>().MusicsMenu);
     }
 
     public void Exit()

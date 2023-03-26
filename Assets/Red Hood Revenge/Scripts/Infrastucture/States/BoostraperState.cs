@@ -11,7 +11,6 @@ internal class BoostraperState : IGameState
 
     public void Enter()
     {
-        _stateMachine.StateSwitch<MainMenuState>();
     }
 
     public void Exit()

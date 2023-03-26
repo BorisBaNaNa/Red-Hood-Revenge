@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections;
 using UnityEngine;
-using UnityEngine.Audio;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
 [RequireComponent(typeof(Controller2D), typeof(AudioSource))]
 public partial class Player : MonoBehaviour, ICanTakeDamage

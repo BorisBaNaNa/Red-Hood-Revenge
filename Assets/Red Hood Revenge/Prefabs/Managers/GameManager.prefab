@@ -44,6 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b944d2595d24114e905fdc5777657b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsHaveNotLives: 0
   CurrentGameState: PlayingState
-  _coin: 25
-  _bullet: 15
+  _defaultCoinCount: 250
+  _defaultBulletCount: 15
+  _defaultLivesCount: 10

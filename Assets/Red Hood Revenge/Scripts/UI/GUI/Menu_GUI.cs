@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class Menu_GUI : MonoBehaviour {
 
+	public bool OnlyController = false;
+
 	public Text scoreText;
 	public Text liveText;
 	public Text bulletText;
@@ -26,6 +28,7 @@ public class Menu_GUI : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
+		if (OnlyController) return;
 
         scoreText.text = _levelManager.Point.ToString ("0000000");
 		coinText.text = _levelManager.Coin.ToString ("00");

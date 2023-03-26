@@ -35,7 +35,7 @@ public class MenuManager : MonoBehaviour, IService
         Time.timeScale = 1;
         SoundManager.PlaySfx(_soundManager.SoundClick);
 
-        // Добавить загрзку уровня
+        // Добавить больше уровней
     }
 
     public void RestartGame()
@@ -43,18 +43,14 @@ public class MenuManager : MonoBehaviour, IService
         Time.timeScale = 1;
         SoundManager.PlaySfx(_soundManager.SoundClick);
 
-        // Добавить загрзку уровня
-        // SceneManager.LoadSceneAsync (SceneManager.GetActiveScene ().buildIndex);
+        LoadSceneState.LoadScene(SceneManager.GetActiveScene().name, false);
     }
 
     public void HomeScene()
     {
         SoundManager.PlaySfx(_soundManager.SoundClick);
-        Time.timeScale = 1;
 
-        // Добавить загрзку уровня
-        // SceneManager.LoadSceneAsync ("MainMenu");
-
+        LoadSceneState.LoadScene("MainMenu", false);
     }
 
     public void GameFinish()
