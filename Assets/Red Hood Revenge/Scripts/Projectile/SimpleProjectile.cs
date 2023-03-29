@@ -4,7 +4,8 @@ using System.Collections;
 public class SimpleProjectile : Projectile, ICanTakeDamage
 {
 	public int Damage;
-	public GameObject DestroyEffect;
+	public GameObject DestroyOtherEffect;
+	public GameObject DestroyOnTakeDamageEffect;
 	public int pointToGivePlayer;
 	public float timeToLive;
 
@@ -23,9 +24,10 @@ public class SimpleProjectile : Projectile, ICanTakeDamage
 		transform.Translate ((Direction + new Vector2 (InitialVelocity.x, 0)) * Speed * Time.deltaTime, Space.World);
 	}
 
-	void DestroyProjectile(){
-		if (DestroyEffect != null)
-			Instantiate (DestroyEffect, transform.position, Quaternion.identity);
+	void DestroyProjectile(GameObject destroyEffect = null)
+    {
+		if (destroyEffect != null)
+			Instantiate (destroyEffect, transform.position, Quaternion.identity);
 		
 		Destroy (gameObject);
 	}
@@ -42,20 +44,20 @@ public class SimpleProjectile : Projectile, ICanTakeDamage
 		}
 
 		SoundManager.PlaySfx (soundHitNothing);
-		DestroyProjectile ();
+		DestroyProjectile (DestroyOtherEffect);
 	}
 
 	protected override void OnCollideOther (Collider2D other)
 	{
 		SoundManager.PlaySfx (soundHitNothing);
-		DestroyProjectile ();
+		DestroyProjectile (DestroyOtherEffect);
 	}
 
 	protected override void OnCollideTakeDamage (Collider2D other, ICanTakeDamage takedamage)
 	{
 		takedamage.TakeDamage (Damage, Vector2.zero, gameObject);
 		SoundManager.PlaySfx (soundHitEnemy);
-		DestroyProjectile ();
+		DestroyProjectile (DestroyOnTakeDamageEffect);
 	}
 }
 

@@ -15,6 +15,7 @@ public class Controller2D : RaycastController
     public bool HandlePhysic = false;
     public float CrouchSizeY;
     public Vector2 boxcolliderCrouchOffset;
+    public Vector2 crouchScale = new Vector3(1f, 0.95f);
 
     private InputActions _inputs;
     private float _boxcolliderSizeYOriginal;
@@ -93,11 +94,13 @@ public class Controller2D : RaycastController
         if (needCrouch)
         {
             size.y = CrouchSizeY;
+            transform.localScale = crouchScale;
             boxcollider.offset = boxcolliderCrouchOffset;
         }
         else
         {
             size.y = _boxcolliderSizeYOriginal;
+            transform.localScale = new Vector3(1f, 1f);
             boxcollider.offset = _boxcolliderOffsetOriginal;
         }
         boxcollider.size = size;
@@ -297,7 +300,6 @@ public class Controller2D : RaycastController
         collisions.fallingThroughPlatform = false;
     }
 
-    [System.Serializable]
     public struct CollisionInfo
     {
         public bool above, below;

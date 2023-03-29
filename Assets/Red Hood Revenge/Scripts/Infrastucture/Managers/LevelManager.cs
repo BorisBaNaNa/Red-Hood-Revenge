@@ -13,7 +13,7 @@ public class LevelManager : MonoBehaviour, IService
     public int BulletCount
     {
         get => _playerRangeAttack.BulletCount;
-        private set => _playerRangeAttack.BulletCount = value;
+        set => _playerRangeAttack.BulletCount = value;
     }
 
     public Player Player { get; set; }
@@ -27,9 +27,11 @@ public class LevelManager : MonoBehaviour, IService
     public string NextLevelName;
 
     [Header("Level settings")]
+    public AudioClip MusicsGame;
     public List<CheckPoint> Checkpoints;
     public int PlayTime = 120;
     public int AlarmTimeLess = 60;
+    public bool IsTrain;
 
     [Header("Level sound")]
     public AudioClip SoundCheckpoint;
@@ -38,6 +40,8 @@ public class LevelManager : MonoBehaviour, IService
 
     [SerializeField]
     private bool isBossLevel = false;
+    [SerializeField]
+    private Transform _floatingTextParent;
 
     private Coroutine _timer;
     private RangeAttack _playerRangeAttack;
@@ -54,6 +58,7 @@ public class LevelManager : MonoBehaviour, IService
         GameManager.SwichGameState<LoadLevelRecourceState>();
         SetupVals();
         Player.Inputs.Player.Disable();
+        SoundManager.PlayMusic(MusicsGame);
     }
 
     public void Start()
@@ -88,7 +93,8 @@ public class LevelManager : MonoBehaviour, IService
 
     public void StartTimer()
     {
-        _timer = StartCoroutine(CountDownTimer());
+        if (PlayTime > 0)
+            _timer = StartCoroutine(CountDownTimer());
     }
 
     public void StopTimer()
@@ -100,6 +106,7 @@ public class LevelManager : MonoBehaviour, IService
     private void Initialize()
     {
         AllServices.Instance.RegisterService(this);
+        AllServices.Instance.GetService<FactoryFloatText>().SetTextParent(_floatingTextParent);
 
         if (Camera == null)
             Camera = FindObjectOfType<CinemachineVirtualCamera>();
@@ -121,6 +128,11 @@ public class LevelManager : MonoBehaviour, IService
         _currentTime = PlayTime;
         _saveTimerCheckPoint = PlayTime;
         SaveResourceInfo();
+
+        if (IsTrain)
+        {
+            Player.GodMode = true;
+        }
     }
 
     private void SaveInfoOnCheckPoint()

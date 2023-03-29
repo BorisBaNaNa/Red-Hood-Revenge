@@ -46,6 +46,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsHaveNotLives: 0
   CurrentGameState: PlayingState
-  _defaultCoinCount: 250
+  _defaultCoinCount: 25
   _defaultBulletCount: 15
   _defaultLivesCount: 10

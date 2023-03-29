@@ -14,9 +14,12 @@ public class Boostraper : MonoBehaviour
     private SoundManager _soundManagerPrefab;
     [SerializeField]
     private GameManager _gameManagerPrefab;
+    [SerializeField]
+    private FloatingText _floatingTextPrefab;
 
     private GameStateMachine _stateMachine;
     private GameManager _gameManager;
+
 
     public void Awake()
     {
@@ -51,5 +54,6 @@ public class Boostraper : MonoBehaviour
         FactoryPlayer.SetSpawnPlayer(SaveInfoManager.LoadChoosenCharacterID());
 
         AllServices.Instance.RegisterService(new FactoryProjectile(_projectilePrefab));
+        AllServices.Instance.RegisterService(new FactoryFloatText(_floatingTextPrefab));
     }
 }

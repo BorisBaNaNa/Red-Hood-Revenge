@@ -292,30 +292,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 330247964730194544, guid: 497c2899f13b0964db7f1db83c05ecd8, type: 3}
-      propertyPath: m_FontData.m_Font
-      value: 
-      objectReference: {fileID: 12800000, guid: e3265ab4bf004d28a9537516768c1c75, type: 3}
-    - target: {fileID: 330247964838711152, guid: 497c2899f13b0964db7f1db83c05ecd8, type: 3}
-      propertyPath: m_Pivot.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 330247964838711152, guid: 497c2899f13b0964db7f1db83c05ecd8, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 330247964838711152, guid: 497c2899f13b0964db7f1db83c05ecd8, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 150
-      objectReference: {fileID: 0}
-    - target: {fileID: 330247964838711152, guid: 497c2899f13b0964db7f1db83c05ecd8, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 330247964838711153, guid: 497c2899f13b0964db7f1db83c05ecd8, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 330247964943445215, guid: 497c2899f13b0964db7f1db83c05ecd8, type: 3}
       propertyPath: m_Name
       value: MainMenu
@@ -404,38 +380,70 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 330247965245542118, guid: 497c2899f13b0964db7f1db83c05ecd8, type: 3}
+    - target: {fileID: 3162348920633578229, guid: 497c2899f13b0964db7f1db83c05ecd8, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3162348920633578229, guid: 497c2899f13b0964db7f1db83c05ecd8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3162348920633578229, guid: 497c2899f13b0964db7f1db83c05ecd8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 330247965245542118, guid: 497c2899f13b0964db7f1db83c05ecd8, type: 3}
+    - target: {fileID: 3162348920633578229, guid: 497c2899f13b0964db7f1db83c05ecd8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1435569104}
-    - target: {fileID: 330247965245542118, guid: 497c2899f13b0964db7f1db83c05ecd8, type: 3}
+    - target: {fileID: 3162348920633578229, guid: 497c2899f13b0964db7f1db83c05ecd8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3162348920633578229, guid: 497c2899f13b0964db7f1db83c05ecd8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OpenScene
       objectReference: {fileID: 0}
-    - target: {fileID: 330247965245542118, guid: 497c2899f13b0964db7f1db83c05ecd8, type: 3}
+    - target: {fileID: 3162348920633578229, guid: 497c2899f13b0964db7f1db83c05ecd8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: MainMenu, Assembly-CSharp
       objectReference: {fileID: 0}
-    - target: {fileID: 330247965245542118, guid: 497c2899f13b0964db7f1db83c05ecd8, type: 3}
+    - target: {fileID: 3162348920633578229, guid: 497c2899f13b0964db7f1db83c05ecd8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: SampleScene
       objectReference: {fileID: 0}
-    - target: {fileID: 330247965772670451, guid: 497c2899f13b0964db7f1db83c05ecd8, type: 3}
+    - target: {fileID: 3162348920633578229, guid: 497c2899f13b0964db7f1db83c05ecd8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4781550788268053391, guid: 497c2899f13b0964db7f1db83c05ecd8, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5056430530013316171, guid: 497c2899f13b0964db7f1db83c05ecd8, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5344275788998673273, guid: 497c2899f13b0964db7f1db83c05ecd8, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 330247965887982596, guid: 497c2899f13b0964db7f1db83c05ecd8, type: 3}
-      propertyPath: m_Color.a
-      value: 0.2901961
+    - target: {fileID: 5727389642436234932, guid: 497c2899f13b0964db7f1db83c05ecd8, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 3941333038148746094, guid: 497c2899f13b0964db7f1db83c05ecd8, type: 3}
-      propertyPath: BoughtSound
-      value: 
-      objectReference: {fileID: 8300000, guid: 0f7db2ff3e7fa8740a396e97de94cce4, type: 3}
+    - target: {fileID: 6499229836475809602, guid: 497c2899f13b0964db7f1db83c05ecd8, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8342438942362458382, guid: 497c2899f13b0964db7f1db83c05ecd8, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8739528665498374307, guid: 497c2899f13b0964db7f1db83c05ecd8, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 497c2899f13b0964db7f1db83c05ecd8, type: 3}
 --- !u!114 &1435569104 stripped
@@ -456,6 +464,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4307585346662287352, guid: e84ed1a3314521845b8ef320fdeb84dc, type: 3}
+      propertyPath: _floatingTextPrefab
+      value: 
+      objectReference: {fileID: -6475487296856933960, guid: 4e70100ed8747064188466fd9a7269f7, type: 3}
     - target: {fileID: 4307585346662287354, guid: e84ed1a3314521845b8ef320fdeb84dc, type: 3}
       propertyPath: m_Name
       value: Boostraper

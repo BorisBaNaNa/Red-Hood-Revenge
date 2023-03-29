@@ -43,7 +43,7 @@ public class PlayerStateMachine : IStateSwitcher
         if (ThisStateIsEnd && newState is not RespawnState)
             return;
 
-        if (ThisStateIsActive/* && IsAttackState(newState)*/)
+        if (ThisStateIsActive && newState is not DeathState/* && IsAttackState(newState)*/)
             return;
 
         if (_currentState is SlideState && IsAttackState(newState))

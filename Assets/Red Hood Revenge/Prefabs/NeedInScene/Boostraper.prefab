@@ -49,3 +49,4 @@ MonoBehaviour:
   _projectilePrefab: {fileID: 5193103851577299235, guid: cd4ebc00e268f6d4cb3942e96842b542, type: 3}
   _soundManagerPrefab: {fileID: 3844824364995474291, guid: eced66aff8ac2c34783715a68405606c, type: 3}
   _gameManagerPrefab: {fileID: 2327334521279739681, guid: 76561b22561ae4043bf0012a75971add, type: 3}
+  _floatingTextPrefab: {fileID: -6475487296856933960, guid: 4e70100ed8747064188466fd9a7269f7, type: 3}

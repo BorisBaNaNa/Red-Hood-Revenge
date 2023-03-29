@@ -15,7 +15,9 @@ public class DeathState : IState
     {
         _player.AnimController.PlayOneTimeAnimation(this);
         _player.Inputs.Player.Disable();
+        _player.MoveDir = Vector2.zero;
         SoundManager.PlaySfx(_player.deadSound);
+        _player.GetComponent<Collider2D>().enabled = false;
 
         _player.SetForce(new Vector2(0, 7f));
         _player.Health = 0;

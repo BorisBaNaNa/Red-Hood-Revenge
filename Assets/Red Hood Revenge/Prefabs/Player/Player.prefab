@@ -63,23 +63,11 @@ MonoBehaviour:
   horizontalRaySpacing: 0
   verticalRaySpacing: 0
   boxcollider: {fileID: 0}
-  collisions:
-    above: 0
-    below: 0
-    left: 0
-    right: 0
-    isGrounedAhead: 0
-    climbingSlope: 0
-    descendingSlope: 0
-    slopeAngle: 0
-    slopeAngleOld: 0
-    velocityOld: {x: 0, y: 0, z: 0}
-    faceDir: 0
-    fallingThroughPlatform: 0
   playerInput: {x: 0, y: 0}
   HandlePhysic: 1
   CrouchSizeY: 1.07
-  boxcolliderCrouchOffset: {x: -0.08, y: 0.53}
+  boxcolliderCrouchOffset: {x: 0, y: 0.53}
+  crouchScale: {x: 1, y: 0.95}
 --- !u!114 &4663989067573361781
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,8 +102,8 @@ MonoBehaviour:
   landSound: {fileID: 0}
   WalkSound: {fileID: 8300000, guid: 122b3c8542cba614f86f94a4877f1f9d, type: 3}
   wallSlideSound: {fileID: 8300000, guid: de1bc2379ad4df44bbcfbcd1b5bc42d1, type: 3}
-  hurtSound: {fileID: 0}
-  deadSound: {fileID: 0}
+  hurtSound: {fileID: 8300000, guid: f6ee337f30a0e0744a2f4b6775c47303, type: 3}
+  deadSound: {fileID: 8300000, guid: fb4ceb9ef20dffa4b896a954cc0edb26, type: 3}
   rangeAttackSound: {fileID: 8300000, guid: 7525a91e3a2218e46aa3be14435ada13, type: 3}
   meleeAttackSound: {fileID: 8300000, guid: 5cfa32b3a56d74a488ae2db00f3dd1bd, type: 3}
   allowMeleeAttack: 1
@@ -136,7 +124,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FirePoint: {fileID: 7264003379643517329}
-  Projectile: {fileID: 5193103851577299235, guid: cd4ebc00e268f6d4cb3942e96842b542, type: 3}
   fireDelay: 0.1
   fireRate: 0.3
   inverseDirection: 0
@@ -154,9 +141,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CollisionMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   multiDamage: 0
-  damageToGive: 10
+  damageToGive: 100
   pushObject: {x: 2.5, y: 1}
   MeleePoint: {fileID: 8591787233988655966}
   areaSize: 0.4
@@ -5191,7 +5178,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8794934149768697970}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.436, y: 0.395, z: 0}
+  m_LocalPosition: {x: 0.557, y: 0.395, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5338,6 +5325,8 @@ MonoBehaviour:
   Player: {fileID: 4663989067573361781}
   SkeletonAnim: {fileID: 8954280914143010931}
   WalkEventName: step
+  ActiveAnimTrack: 1
+  StableAnimTrack: 0
   Idle: {fileID: 11400000, guid: 6e61c5492ac4a8f428959e67dce94fec, type: 2}
   Walk: {fileID: 11400000, guid: d5d01200f349a1d4da81c75406cb68e1, type: 2}
   Crouch: {fileID: 11400000, guid: 05fbbc347a8abe0459348238e3e01ecb, type: 2}

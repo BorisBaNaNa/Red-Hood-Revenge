@@ -46,7 +46,6 @@ public class SoundManager : MonoBehaviour, IService
     [Header("Other settings")]
     [Tooltip("Play music clip when start")]
     public AudioClip MusicsMenu;
-    public AudioClip MusicsGame;
 
     [Tooltip("Place the sound in this to call it in another script by: SoundManager.PlaySfx(soundname);")]
     public AudioClip SoundClick;

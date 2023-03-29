@@ -33,7 +33,7 @@ public class Menu_GameFinish : MonoBehaviour
     {
         while (timer > 0)
         {
-            yield return new WaitForSeconds(countingSpeed * Time.deltaTime);
+            yield return new WaitForSecondsRealtime(countingSpeed * Time.deltaTime);
 
             timer--;
             score++;

@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using Unity.VisualScripting;
+using UnityEngine;
 
 public class RespawnState : IState
 {
@@ -13,14 +15,13 @@ public class RespawnState : IState
 
     public void Enter()
     {
-        _player.Inputs.Player.Enable();
         _player.Health = _player.maxHealth;
 
         //EnableColliders();
         //_player.Controller.HandlePhysic = true;
 
         _stateMachine.Player.AnimController.PlayOneTimeAnimation(this);
-        _stateMachine.StateSwitch<IdleState>();
+        _player.StartCoroutine(StartPaying());
     }
 
     private void EnableColliders()
@@ -38,4 +39,12 @@ public class RespawnState : IState
     }
 
     public void Exit() { }
+
+    private IEnumerator StartPaying()
+    {
+        yield return new WaitForSeconds(0.5f);
+        _player.Inputs.Player.Enable();
+        _stateMachine.StateSwitch<IdleState>();
+        _player.GetComponent<Collider2D>().enabled = true;
+    }
 }

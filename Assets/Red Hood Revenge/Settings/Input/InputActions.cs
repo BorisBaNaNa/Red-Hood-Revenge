@@ -209,6 +209,34 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Intro"",
+            ""id"": ""8b6f0ad6-7a8e-4f2d-80e8-d1d98690c05c"",
+            ""actions"": [
+                {
+                    ""name"": ""CloseIntro"",
+                    ""type"": ""Button"",
+                    ""id"": ""b4cf1d78-cf36-4b33-9338-a573f5a5fa3d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""935840ec-fbdb-4068-85d4-4568af23a301"",
+                    ""path"": ""<Keyboard>/anyKey"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""PC"",
+                    ""action"": ""CloseIntro"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -257,6 +285,9 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_MeleeAttack = m_Player.FindAction("Melee Attack", throwIfNotFound: true);
         m_Player_RangeAttack = m_Player.FindAction("Range Attack", throwIfNotFound: true);
+        // Intro
+        m_Intro = asset.FindActionMap("Intro", throwIfNotFound: true);
+        m_Intro_CloseIntro = m_Intro.FindAction("CloseIntro", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -369,6 +400,39 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         }
     }
     public PlayerActions @Player => new PlayerActions(this);
+
+    // Intro
+    private readonly InputActionMap m_Intro;
+    private IIntroActions m_IntroActionsCallbackInterface;
+    private readonly InputAction m_Intro_CloseIntro;
+    public struct IntroActions
+    {
+        private @InputActions m_Wrapper;
+        public IntroActions(@InputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @CloseIntro => m_Wrapper.m_Intro_CloseIntro;
+        public InputActionMap Get() { return m_Wrapper.m_Intro; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(IntroActions set) { return set.Get(); }
+        public void SetCallbacks(IIntroActions instance)
+        {
+            if (m_Wrapper.m_IntroActionsCallbackInterface != null)
+            {
+                @CloseIntro.started -= m_Wrapper.m_IntroActionsCallbackInterface.OnCloseIntro;
+                @CloseIntro.performed -= m_Wrapper.m_IntroActionsCallbackInterface.OnCloseIntro;
+                @CloseIntro.canceled -= m_Wrapper.m_IntroActionsCallbackInterface.OnCloseIntro;
+            }
+            m_Wrapper.m_IntroActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @CloseIntro.started += instance.OnCloseIntro;
+                @CloseIntro.performed += instance.OnCloseIntro;
+                @CloseIntro.canceled += instance.OnCloseIntro;
+            }
+        }
+    }
+    public IntroActions @Intro => new IntroActions(this);
     private int m_PCSchemeIndex = -1;
     public InputControlScheme PCScheme
     {
@@ -393,5 +457,9 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         void OnJump(InputAction.CallbackContext context);
         void OnMeleeAttack(InputAction.CallbackContext context);
         void OnRangeAttack(InputAction.CallbackContext context);
+    }
+    public interface IIntroActions
+    {
+        void OnCloseIntro(InputAction.CallbackContext context);
     }
 }

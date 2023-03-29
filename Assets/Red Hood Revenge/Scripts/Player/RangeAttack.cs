@@ -5,7 +5,6 @@ public class RangeAttack : MonoBehaviour
 {
     #region Inspector
     public Transform FirePoint;
-    public Projectile Projectile;
     [Tooltip("Запуск снарядя после задержки, полезно для синхронизации с анимацией")]
     public float fireDelay;
     public float fireRate;

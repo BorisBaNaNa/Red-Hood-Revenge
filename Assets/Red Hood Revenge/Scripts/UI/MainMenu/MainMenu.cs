@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -24,6 +25,10 @@ public class MainMenu : MonoBehaviour
     public Sprite MusicOn;
     public Sprite MusicOff;
 
+    [Header("Helpers Settings")]
+    public GameObject AndroidPanel;
+    public GameObject PCPanel;
+
     private SoundManager _soundManager;
     private Animator _soundBtnAnimator;
     private Animator _musicBtnAnimator;
@@ -40,8 +45,21 @@ public class MainMenu : MonoBehaviour
 
         ActivateSliders();
         InitAnimatorsInfo();
+        InitHelpers();
         StartCoroutine(InitSoundAndMusic());
     }
+
+    private void InitHelpers()
+    {
+#if UNITY_STANDALONE
+        PCPanel.SetActive(true);
+        AndroidPanel.SetActive(false);
+#else
+        PCPanel.SetActive(false);
+        AndroidPanel.SetActive(true);
+#endif
+    }
+
     void Start()
     {
         GameManager.SwichGameState<MainMenuState>();

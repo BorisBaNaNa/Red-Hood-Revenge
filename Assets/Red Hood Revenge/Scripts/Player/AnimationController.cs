@@ -11,6 +11,9 @@ public class AnimationController : MonoBehaviour
     public SkeletonAnimation SkeletonAnim;
     public string WalkEventName;
 
+    public int ActiveAnimTrack = 0;
+    public int StableAnimTrack = 1;
+
     public AnimationReferenceAsset Idle, Walk, Crouch, Crouching, UnCrouch, Jump, Fall, Land, SlideFaceToWall, SlideBackToWall, 
         MeleeAttackAnim, RangeAttackAnim, TackeDamageAnim, Death, Win, Respawn;
 
@@ -28,28 +31,28 @@ public class AnimationController : MonoBehaviour
 
     public void PlayStableAnimation(IState playerState)
     {
-        TrackEntry currentAnim = SkeletonAnim.AnimationState.GetCurrent(0);
+        TrackEntry currentAnim = SkeletonAnim.AnimationState.GetCurrent(StableAnimTrack);
 
         switch (playerState.GetType().Name)
         {
             case "IdleState":
-                SoftSetAnimation(0, currentAnim, Idle, true);
+                SoftSetAnimation(StableAnimTrack, currentAnim, Idle, true);
                 break;
             case "WalkState":
-                SoftSetAnimation(0, currentAnim, Walk, true);
+                SoftSetAnimation(StableAnimTrack, currentAnim, Walk, true);
                 break;
             case "CrouchState":
-                SkeletonAnim.AnimationState.SetAnimation(0, Crouch, false);
-                SkeletonAnim.AnimationState.AddAnimation(0, Crouching, true, 0);
+                SkeletonAnim.AnimationState.SetAnimation(StableAnimTrack, Crouch, false);
+                SkeletonAnim.AnimationState.AddAnimation(StableAnimTrack, Crouching, true, 0);
                 break;
             case "FallState":
-                SoftSetAnimation(0, currentAnim, Fall, true);
+                SoftSetAnimation(StableAnimTrack, currentAnim, Fall, true);
                 break;
             case "SlideState":
                 if (Player.transform.localScale.x == Player.WallDirX)
-                    SoftSetAnimation(0, currentAnim, SlideFaceToWall, true);
+                    SoftSetAnimation(StableAnimTrack, currentAnim, SlideFaceToWall, true);
                 else
-                    SoftSetAnimation(0, currentAnim, SlideBackToWall, true);
+                    SoftSetAnimation(StableAnimTrack, currentAnim, SlideBackToWall, true);
                 break;
             default:
                 Debug.LogError($"Error type, PlayStableAnimation has not {playerState.GetType().Name} animation type!");
@@ -73,38 +76,38 @@ public class AnimationController : MonoBehaviour
 
     public void PlayOneTimeAnimation(IState playerState)
     {
-        TrackEntry currentStableAnim = SkeletonAnim.AnimationState.GetCurrent(0);
-        TrackEntry currentActiveAnim = SkeletonAnim.AnimationState.GetCurrent(1);
+        TrackEntry currentStableAnim = SkeletonAnim.AnimationState.GetCurrent(StableAnimTrack);
+        TrackEntry currentActiveAnim = SkeletonAnim.AnimationState.GetCurrent(ActiveAnimTrack);
 
         switch (playerState.GetType().Name)
         {
             case "LandState":
-                SoftSetAnimation(0, currentStableAnim, Land, false);
+                SoftSetAnimation(StableAnimTrack, currentStableAnim, Land, false);
                 break;
             case "JumpState":
-                SoftSetAnimation(0, currentStableAnim, Jump, false);
+                SoftSetAnimation(StableAnimTrack, currentStableAnim, Jump, false);
                 break;
             case "MelleAttackState":
-                SoftSetAnimation(0, currentStableAnim, MeleeAttackAnim, false);
-                //SoftSetAnimation(1, currentActiveAnim, MeleeAttackAnim, false);
-                //SkeletonAnim.AnimationState.AddEmptyAnimation(0, 0.05f, currentStableAnim.Animation.Duration - 0.04f);
+                SoftSetAnimation(StableAnimTrack, currentStableAnim, MeleeAttackAnim, false);
+                //SoftSetAnimation(activeAnimTrack, currentActiveAnim, MeleeAttackAnim, false);
+                //SkeletonAnim.AnimationState.AddEmptyAnimation(0, 0.05, currentStableAnim.Animation.Duration - 0.04f);
                 break;
             case "RangeAttackState":
-                SoftSetAnimation(0, currentStableAnim, RangeAttackAnim, false, true);
-                //SoftSetAnimation(1, currentActiveAnim, RangeAttackAnim, false, true);
-                //SkeletonAnim.AnimationState.AddEmptyAnimation(0, 0.02f, currentStableAnim.Animation.Duration - 0.01f);
+                SoftSetAnimation(StableAnimTrack, currentStableAnim, RangeAttackAnim, false, true);
+                //SoftSetAnimation(activeAnimTrack, currentActiveAnim, RangeAttackAnim, false, true);
+                //SkeletonAnim.AnimationState.AddEmptyAnimation(0, 0.02, currentStableAnim.Animation.Duration - 0.01f);
                 break;
             case "TakeDamageState":
-                SoftSetAnimation(1, currentActiveAnim, TackeDamageAnim, false);
+                SoftSetAnimation(StableAnimTrack, currentStableAnim, TackeDamageAnim, false);
                 break;
             case "DeathState":
-                SoftSetAnimation(0, currentStableAnim, Death, false);
+                SoftSetAnimation(StableAnimTrack, currentStableAnim, Death, false);
                 break;
-            case "EndGameState":
-                SoftSetAnimation(0, currentStableAnim, Win, false);
+            case "FinishState":
+                SoftSetAnimation(StableAnimTrack, currentStableAnim, Win, false);
                 break;
             case "RespawnState":
-                SoftSetAnimation(0, currentStableAnim, Respawn, false);
+                SoftSetAnimation(StableAnimTrack, currentStableAnim, Respawn, false);
                 break;
             default:
                 Debug.LogError($"Error type, PlayStableAnimation has not {playerState.GetType().Name} animation type!");

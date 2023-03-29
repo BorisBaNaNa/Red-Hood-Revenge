@@ -140,7 +140,7 @@ public partial class Player : MonoBehaviour, ICanTakeDamage
         _inputs = new InputActions();
 
         _stateMachine = new PlayerStateMachine(this);
-        _stateMachine.StateSwitch<RespawnState>();
+        _stateMachine.StateSwitch<IdleState>();
 
         SoundFx = GetComponent<AudioSource>();
     }
@@ -202,6 +202,9 @@ public partial class Player : MonoBehaviour, ICanTakeDamage
 
     public void TakeDamage(float damage, Vector2 forceDir, GameObject instigator)
     {
+        if (CurrentState == "DeathState")
+            return;
+
         _lastInstigator = instigator;
         _stateMachine.StateSwitch<TakeDamageState>();
 

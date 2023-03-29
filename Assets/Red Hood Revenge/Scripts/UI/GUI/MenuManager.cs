@@ -60,7 +60,7 @@ public class MenuManager : MonoBehaviour, IService
 
     public void GameOver()
     {
-        StartCoroutine(GameOverCo(1));
+        StartCoroutine(GameOverCo(1.5f));
     }
 
     public void Pause()

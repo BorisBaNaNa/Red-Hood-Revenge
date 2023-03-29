@@ -187,6 +187,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Intro",
+            "id": "8b6f0ad6-7a8e-4f2d-80e8-d1d98690c05c",
+            "actions": [
+                {
+                    "name": "CloseIntro",
+                    "type": "Button",
+                    "id": "b4cf1d78-cf36-4b33-9338-a573f5a5fa3d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "935840ec-fbdb-4068-85d4-4568af23a301",
+                    "path": "<Keyboard>/anyKey",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PC",
+                    "action": "CloseIntro",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [
