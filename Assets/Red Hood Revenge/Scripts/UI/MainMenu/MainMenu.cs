@@ -46,18 +46,7 @@ public class MainMenu : MonoBehaviour
         ActivateSliders();
         InitAnimatorsInfo();
         InitHelpers();
-        StartCoroutine(InitSoundAndMusic());
-    }
-
-    private void InitHelpers()
-    {
-#if UNITY_STANDALONE
-        PCPanel.SetActive(true);
-        AndroidPanel.SetActive(false);
-#else
-        PCPanel.SetActive(false);
-        AndroidPanel.SetActive(true);
-#endif
+        //StartCoroutine(InitSoundAndMusic());
     }
 
     void Start()
@@ -68,6 +57,7 @@ public class MainMenu : MonoBehaviour
         //LevelsChoose.SetActive (false);
         Shop.SetActive(false);
         HelperPanel.SetActive(false);
+        InitSoundAndMusic();
     }
 
     public void OpenWorld(int world)
@@ -119,10 +109,7 @@ public class MainMenu : MonoBehaviour
     public void MusicSettings()
     {
         if (_musicSettingIsActive)
-        {
             _musicBtnAnimator.Play(_musicBtnCloseAnimHash);
-            SaveInfoManager.SaveMusicVal(_soundManager.MusicVolume);
-        }
         else
             _musicBtnAnimator.Play(_musicBtnOpenAnimHash);
         _musicSettingIsActive ^= true;
@@ -131,10 +118,7 @@ public class MainMenu : MonoBehaviour
     public void SoundSettings()
     {
         if (_soundSettingIsActive)
-        {
             _soundBtnAnimator.Play(_soundBtnCloseAnimHash);
-            SaveInfoManager.SaveSoundVal(_soundManager.SoundVolume);
-        }
         else
             _soundBtnAnimator.Play(_soundBtnOpenAnimHash);
         _soundSettingIsActive ^= true;
@@ -144,9 +128,11 @@ public class MainMenu : MonoBehaviour
     {
         if (!_soundManager)
         {
-            Debug.Log("huita!");
+            Debug.Log("_soundManager is null");
             return;
         }
+
+        SaveInfoManager.SaveMusicVal(_soundManager.MusicVolume);
         _soundManager.MusicVolume = val;
         TurnMusic(val <= 0.0001f);
     }
@@ -155,17 +141,18 @@ public class MainMenu : MonoBehaviour
     {
         if (!_soundManager)
         {
-            Debug.Log("huita!");
+            Debug.Log("_soundManager is null");
             return;
         }
 
+        SaveInfoManager.SaveSoundVal(_soundManager.SoundVolume);
         _soundManager.SoundVolume = val;
         TurnSound(val <= 0.0001f);
     }
 
-    private IEnumerator InitSoundAndMusic()
+    private void InitSoundAndMusic()
     {
-        yield return new WaitForSecondsRealtime(0.1f);
+        //yield return new WaitForSecondsRealtime(0.1f);
 
         float value = SaveInfoManager.LoadSoundVal();
         SoundSlider.value = value;
@@ -174,6 +161,17 @@ public class MainMenu : MonoBehaviour
         value = SaveInfoManager.LoadMusicVal();
         MusicSlider.value = value;
         SetMusicVolume(value);
+    }
+
+    private void InitHelpers()
+    {
+#if UNITY_STANDALONE
+        PCPanel.SetActive(true);
+        AndroidPanel.SetActive(false);
+#else
+        PCPanel.SetActive(false);
+        AndroidPanel.SetActive(true);
+#endif
     }
 
     private void TurnSound(bool condition) => Turn(condition, SoundImage, SoundOn, SoundOff);

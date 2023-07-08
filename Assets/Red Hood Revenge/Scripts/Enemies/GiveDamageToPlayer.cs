@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class GiveDamageToPlayer : MonoBehaviour
 {
@@ -17,6 +18,8 @@ public class GiveDamageToPlayer : MonoBehaviour
     [Tooltip("Give damage to this object when Player jump on his head")]
     public bool canBeKillOnHead = false;
     public float damageOnHead;
+
+    public Action GiveDamageAction;
 
     void OnTriggerStay2D(Collider2D other)
     {
@@ -46,6 +49,7 @@ public class GiveDamageToPlayer : MonoBehaviour
         var facingDirectionX = Mathf.Sign(Player.transform.position.x - transform.position.x);
         var facingDirectionY = Mathf.Sign(Player.Velocity.y);
 
+        GiveDamageAction.Invoke();
         Player.SetForce(new Vector2(Mathf.Clamp(Mathf.Abs(Player.Velocity.x), 10, 15) * facingDirectionX,
             Mathf.Clamp(Mathf.Abs(Player.Velocity.y), 5, 15) * facingDirectionY * -1));
 

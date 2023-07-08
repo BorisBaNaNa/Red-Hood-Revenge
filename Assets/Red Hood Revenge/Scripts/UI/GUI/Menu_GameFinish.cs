@@ -25,7 +25,7 @@ public class Menu_GameFinish : MonoBehaviour
     void Start()
     {
         timer = LevelManager.CurrentTime_;
-
+        score = LevelManager.Point_;
         StartCoroutine(Counting());
     }
 

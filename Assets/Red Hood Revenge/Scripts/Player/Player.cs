@@ -9,7 +9,7 @@ public partial class Player : MonoBehaviour, ICanTakeDamage
     public bool GodMode;
 
     [Header("Animations")]
-    public AnimationController AnimController;
+    public PlayerAnimController AnimController;
 
     [Header("Moving")]
     public float moveSpeed = 3;
@@ -163,12 +163,15 @@ public partial class Player : MonoBehaviour, ICanTakeDamage
     #region API
     public void Jump()
     {
+        controller.IsJumpKeyPressed = true;
         if (_moveDir.y >= 0)
             _stateMachine.StateSwitch<JumpState>();
     }
 
-    public void JumpOff() =>
+    public void JumpOff() {
+        controller.IsJumpKeyPressed = false;
         AllServices.Instance.GetService<JumpState>().JumpOff();
+    }
 
     public void MeleeAttack()
     {

@@ -9,6 +9,7 @@ public class LevelManager : MonoBehaviour, IService
     public static bool IsBossLevel => AllServices.Instance.GetService<LevelManager>().isBossLevel;
     public static bool IsLastLevel => AllServices.Instance.GetService<LevelManager>().NextLevelName == string.Empty;
     public static int CurrentTime_ => AllServices.Instance.GetService<LevelManager>()._currentTime;
+    public static int Point_ => AllServices.Instance.GetService<LevelManager>().Point;
     public int CurrentTime => _currentTime;
     public int BulletCount
     {

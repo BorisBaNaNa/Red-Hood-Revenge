@@ -15,7 +15,10 @@ EditorBuildSettings:
     path: Assets/Red Hood Revenge/Scenes/LoadScene.unity
     guid: 0d36b5baf26c9314c97ccd74ff1ec898
   - enabled: 1
-    path: Assets/Red Hood Revenge/Scenes/Levels/World 1-1.unity
+    path: Assets/Red Hood Revenge/Scenes/Levels/World 1/World 1-1.unity
+    guid: c90e3a14db8a3f74295a7ecec3cb4d2f
+  - enabled: 1
+    path: Assets/Red Hood Revenge/Scenes/Levels/World 2/World 2-9.unity
     guid: 1b22b64c6e0b048458cda328a90bd18b
   - enabled: 1
     path: Assets/Red Hood Revenge/Scenes/SampleScene.unity

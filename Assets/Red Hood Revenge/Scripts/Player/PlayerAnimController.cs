@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Playables;
 using static Player;
 
-public class AnimationController : MonoBehaviour
+public class PlayerAnimController : MonoBehaviour
 {
     [Header("Components")]
     public Player Player;
@@ -17,7 +17,7 @@ public class AnimationController : MonoBehaviour
     public AnimationReferenceAsset Idle, Walk, Crouch, Crouching, UnCrouch, Jump, Fall, Land, SlideFaceToWall, SlideBackToWall, 
         MeleeAttackAnim, RangeAttackAnim, TackeDamageAnim, Death, Win, Respawn;
 
-    private EventData eventData;
+    private EventData _walkEventData;
 
 
     public void Start()
@@ -25,7 +25,7 @@ public class AnimationController : MonoBehaviour
         if (SkeletonAnim == null)
             SkeletonAnim = GetComponent<SkeletonAnimation>();
 
-        eventData = SkeletonAnim.Skeleton.Data.FindEvent(WalkEventName);
+        _walkEventData = SkeletonAnim.Skeleton.Data.FindEvent(WalkEventName);
         SkeletonAnim.AnimationState.Event += HandleAnimationStateEvent;
     }
 
@@ -119,7 +119,7 @@ public class AnimationController : MonoBehaviour
     {
         // Debug.Log("Event fired! " + e.Data.Name);
         //bool eventMatch = string.Equals(e.Data.Name, eventName, System.StringComparison.Ordinal); // Testing recommendation: String compare.
-        bool eventMatch = (eventData == e.Data); // Performance recommendation: Match cached reference instead of string.
+        bool eventMatch = (_walkEventData == e.Data); // Performance recommendation: Match cached reference instead of string.
         if (eventMatch)
         {
             SoundManager.PlaySfx(Player.WalkSound);
