@@ -136,6 +136,7 @@ MonoBehaviour:
   pointToAdd: 10
   Effect: {fileID: 106642, guid: f16d45270fd42db4ca5ac9576c99a49b, type: 3}
   isRespawnCheckPoint: 1
+  IsTrain: 0
   sound: {fileID: 8300000, guid: 50c45cd35f383b545965eb9b93bdc56a, type: 3}
 --- !u!114 &6325364528264036390
 MonoBehaviour:
@@ -150,8 +151,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeToLive: 5
-  minForce: {x: -2, y: 3}
-  maxForce: {x: 2, y: 7}
+  minForce: {x: -1, y: 2}
+  maxForce: {x: 1, y: 4}
 --- !u!61 &5368432126242612523
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -14,7 +14,7 @@ public class UIPlayerController : MonoBehaviour
     private float _playerRangeAttackRate;
     private float _playerMeleeAttackRate;
 
-    public void Awake()
+    public void Start()
     {
         Initialize();
     }
@@ -62,11 +62,13 @@ public class UIPlayerController : MonoBehaviour
     {
         _levelManager = AllServices.Instance.GetService<LevelManager>();
         if (_levelManager)
+        {
             _player = _levelManager.Player;
+            _playerRangeAttackRate = _player.GetComponent<RangeAttack>().fireRate;
+            _playerMeleeAttackRate = _player.GetComponent<MeleeAttack>().attackRate;
+        }
         else
             _player = FindObjectOfType<Player>();
-        _playerRangeAttackRate = _player.GetComponent<RangeAttack>().fireRate;
-        _playerMeleeAttackRate = _player.GetComponent<MeleeAttack>().attackRate;
     }
 
     private IEnumerator RangeAttacking()

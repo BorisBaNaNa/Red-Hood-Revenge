@@ -5,6 +5,7 @@ using System.Collections;
 public class EnemyAI : MonoBehaviour, ICanTakeDamage, IPlayerRespawnListener
 {
     [Header("Behavior")]
+    public EnemyAnimController EnemyAnim;
     public float gravity = 35f;
     [Tooltip("allow push the enemy back when hit by player")]
     public bool pushEnemyBack = true;
@@ -40,8 +41,10 @@ public class EnemyAI : MonoBehaviour, ICanTakeDamage, IPlayerRespawnListener
     public Transform PointSpawn;
     public Projectile projectile;
     public float fireRate = 1f;
+    public float FireDelay = 0.5f;
     public float detectDistance = 10f;
     float _fireIn;
+    float _fireDelayWait;
 
     public bool isPlaying { get; set; }
     public bool isSocking { get; set; }
@@ -68,11 +71,17 @@ public class EnemyAI : MonoBehaviour, ICanTakeDamage, IPlayerRespawnListener
         _startPosition = transform.position;
         _startScale = transform.localScale;
         _fireIn = fireRate;
+        _fireDelayWait = FireDelay;
         currentHealth = health;
         currentHitLeft = maxHitToKill;
 
         isPlaying = true;
         isSocking = false;
+
+        if (EnemyAnim == null)
+            Debug.LogError("EnemyAnim is null");
+
+        GetComponent<GiveDamageToPlayer>().GiveDamageAction = () => EnemyAnim.PlayMeleeAttackAnim();
     }
 
     // Update is called once per frame
@@ -83,8 +92,6 @@ public class EnemyAI : MonoBehaviour, ICanTakeDamage, IPlayerRespawnListener
 
         if (!isPlaying || isSocking)
             return;
-
-        _fireIn -= Time.deltaTime;
 
         if ((_direction.x > 0 && controller.collisions.right) || (_direction.x < 0 && controller.collisions.left)
             || (!ignoreCheckGroundAhead && !controller.collisions.isGrounedAhead && controller.collisions.below))
@@ -98,18 +105,29 @@ public class EnemyAI : MonoBehaviour, ICanTakeDamage, IPlayerRespawnListener
 
         if (isUseProjectile)
         {
+            _fireIn -= Time.deltaTime;
             var position = PointSpawn != null ? PointSpawn.position : transform.position;
             var hit = Physics2D.Raycast(position, _direction, detectDistance, shootableLayer);
             if (hit)
             {
                 if (hit.collider.gameObject.GetComponent<Player>() != null)
-                    FireProjectile();
+                {
+                    if (_fireDelayWait <= 0)
+                        FireProjectile();
+                    else
+                        _fireDelayWait -= Time.deltaTime;
+                }
             }
+            else
+                _fireDelayWait = FireDelay;
         }
     }
 
     public virtual void LateUpdate()
     {
+        if (!isPlaying)
+            return;
+
         if (isPlaying && !isSocking)
         {
             velocity.x = _direction.x * moveSpeed;
@@ -135,6 +153,7 @@ public class EnemyAI : MonoBehaviour, ICanTakeDamage, IPlayerRespawnListener
         _fireIn = fireRate;
         var _projectile = (Projectile)Instantiate(projectile, PointSpawn.position, Quaternion.identity);
         _audioSource.PlayOneShot(FireSound);
+        EnemyAnim.PlayRangeAttackAnim();
         _projectile.Initialize(gameObject, _direction, Vector2.zero);
     }
 
@@ -198,6 +217,7 @@ public class EnemyAI : MonoBehaviour, ICanTakeDamage, IPlayerRespawnListener
 
         StopAllCoroutines();
         _audioSource.PlayOneShot(deadSound);
+        EnemyAnim.PlayDeathAnim();
         if (pointToGivePlayer != 0)
         {
             AllServices.Instance.GetService<LevelManager>().Point += pointToGivePlayer;
@@ -210,7 +230,6 @@ public class EnemyAI : MonoBehaviour, ICanTakeDamage, IPlayerRespawnListener
         if (spawnItemWhenDead != null)
             Instantiate(spawnItemWhenDead, PointSpawn.position, PointSpawn.rotation);
 
-        gameObject.SetActive(false);
         //turn off all colliders if the enemy have
         var boxCo = GetComponents<BoxCollider2D>();
         foreach (var box in boxCo)
@@ -222,12 +241,7 @@ public class EnemyAI : MonoBehaviour, ICanTakeDamage, IPlayerRespawnListener
         {
             cir.enabled = false;
         }
-
-    }
-
-    protected virtual void OnRespawn()
-    {
-
+        StartCoroutine(DeactivateCoroutine());
     }
 
     public void OnPlayerRespawnInThisCheckPoint(CheckPoint checkpoint, Player player)
@@ -255,9 +269,7 @@ public class EnemyAI : MonoBehaviour, ICanTakeDamage, IPlayerRespawnListener
         {
             cir.enabled = true;
         }
-
-
-        OnRespawn();
+        EnemyAnim.BackToWalkAnim();
     }
 
     public IEnumerator PushBack(float delay)
@@ -285,5 +297,11 @@ public class EnemyAI : MonoBehaviour, ICanTakeDamage, IPlayerRespawnListener
             else
                 Gizmos.DrawRay(PointSpawn.position, Vector2.left * detectDistance);
         }
+    }
+
+    private IEnumerator DeactivateCoroutine()
+    {
+        yield return new WaitForSeconds(2f);
+        gameObject.SetActive(false);
     }
 }

@@ -8,6 +8,7 @@ public class Controller2D : RaycastController
     float maxClimbAngle = 80;
     float maxDescendAngle = 80;
     float checkGroundAheadLength = 0.35f;
+    public bool IsJumpKeyPressed { get; set; }
 
     public CollisionInfo collisions;
     [HideInInspector]
@@ -190,7 +191,7 @@ public class Controller2D : RaycastController
                     {
                         continue;
                     }
-                    if (playerInput.y == -1 && _inputs.Player.Jump.IsPressed())
+                    if (playerInput.y == -1 && IsJumpKeyPressed)
                     {
                         collisions.fallingThroughPlatform = true;
                         Invoke("ResetFallingThroughPlatform", .5f);

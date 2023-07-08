@@ -51,6 +51,7 @@ MonoBehaviour:
   healthToGive: 30
   Effect: {fileID: 113216, guid: 20400a4349ca29f41b9c336e87901ff8, type: 3}
   isRespawnCheckPoint: 0
+  IsTrain: 0
   soundEffect: {fileID: 8300000, guid: beed93711d88f2e46a7ba193e6958b92, type: 3}
 --- !u!114 &6443993359090360447
 MonoBehaviour:
@@ -65,8 +66,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeToLive: 10
-  minForce: {x: -2, y: 3}
-  maxForce: {x: 2, y: 7}
+  minForce: {x: -1, y: 2}
+  maxForce: {x: 1, y: 4}
 --- !u!61 &6640644691916422906
 BoxCollider2D:
   m_ObjectHideFlags: 0

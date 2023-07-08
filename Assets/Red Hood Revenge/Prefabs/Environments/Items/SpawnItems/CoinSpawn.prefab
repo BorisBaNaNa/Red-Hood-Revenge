@@ -150,8 +150,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeToLive: 10
-  minForce: {x: -2, y: 3}
-  maxForce: {x: 2, y: 7}
+  minForce: {x: -1, y: 2}
+  maxForce: {x: 1, y: 4}
 --- !u!61 &2399931773196570055
 BoxCollider2D:
   m_ObjectHideFlags: 0
