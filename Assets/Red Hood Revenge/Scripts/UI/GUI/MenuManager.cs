@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System;
 
 public class MenuManager : MonoBehaviour, IService
 {
@@ -34,8 +35,9 @@ public class MenuManager : MonoBehaviour, IService
     {
         Time.timeScale = 1;
         SoundManager.PlaySfx(_soundManager.SoundClick);
-
-        // Добавить больше уровней
+        string nextSceneName = AllServices.Instance.GetService<LevelManager>().NextLevelName;
+        if (nextSceneName != string.Empty)
+            LoadSceneState.LoadScene(nextSceneName, false);
     }
 
     public void RestartGame()
@@ -129,6 +131,7 @@ public class MenuManager : MonoBehaviour, IService
         yield return new WaitForSecondsRealtime(time);
 
         GameManager.SwichGameState<PausedState>();
+        CheckAndOpenLevel();
         GameFinishMenu.SetActive(true);
     }
 
@@ -140,5 +143,12 @@ public class MenuManager : MonoBehaviour, IService
 
         GameManager.SwichGameState<PausedState>();
         GameoverMenu.SetActive(true);
+    }
+
+    private void CheckAndOpenLevel()
+    {
+        int levelReached = SaveInfoManager.LoadLevelsOpened(GameManager.WorldPlaying);
+        if (levelReached <= GameManager.LevelPlaying && LevelManager.IsLastLevel)
+            SaveInfoManager.SaveLevelsOpened(GameManager.WorldPlaying, ++levelReached);
     }
 }

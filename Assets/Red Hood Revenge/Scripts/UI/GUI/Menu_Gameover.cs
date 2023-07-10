@@ -12,8 +12,8 @@ public class Menu_Gameover : MonoBehaviour
 
     void Awake()
     {
-        if (LevelManager.IsLastLevel)
-            Next.SetActive(false);      //dont show the next button when this is the final level
+        var levelReached = SaveInfoManager.LoadLevelsOpened(GameManager.WorldPlaying);
+        Next.SetActive(GameManager.LevelPlaying < levelReached && !LevelManager.IsLastLevel);
     }
 
     void OnEnable()
@@ -26,13 +26,6 @@ public class Menu_Gameover : MonoBehaviour
         else
             lives = 0;
 
-        // Сделать доступность уровней по прохождении
-        //var levelReached = PlayerPrefs.GetInt (GlobalValue.worldPlaying.ToString (), 1);
-
-        //if (GlobalValue.levelPlaying < levelReached)
-        //	Next.SetActive (true);
-        //else
-        //	Next.SetActive (false);
 
         liveText.text = (lives + 1).ToString("00");
         StartCoroutine(SubtractLiveCo(1));

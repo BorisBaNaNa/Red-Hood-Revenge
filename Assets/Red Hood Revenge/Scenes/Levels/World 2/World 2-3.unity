@@ -170,7 +170,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bae098b8af5f545b5145c4a4f67d24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Walk: {fileID: 11400000, guid: f601bbd89aaee9a4caf9daa07761f6cd, type: 2}
   RangeAttack: {fileID: 11400000, guid: 54b70cbb74b063c4aaf8267efc6e4492, type: 2}
   MeleeAttack: {fileID: 11400000, guid: af2d4470d9303084d9bcd498fbf26e62, type: 2}
   Death: {fileID: 11400000, guid: a11079ff0d0a4df45bcc93fd3459b037, type: 2}
@@ -756,7 +755,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bae098b8af5f545b5145c4a4f67d24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Walk: {fileID: 11400000, guid: f601bbd89aaee9a4caf9daa07761f6cd, type: 2}
   RangeAttack: {fileID: 11400000, guid: 54b70cbb74b063c4aaf8267efc6e4492, type: 2}
   MeleeAttack: {fileID: 11400000, guid: af2d4470d9303084d9bcd498fbf26e62, type: 2}
   Death: {fileID: 11400000, guid: a11079ff0d0a4df45bcc93fd3459b037, type: 2}
@@ -2263,7 +2261,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bae098b8af5f545b5145c4a4f67d24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Walk: {fileID: 11400000, guid: f601bbd89aaee9a4caf9daa07761f6cd, type: 2}
   RangeAttack: {fileID: 11400000, guid: 54b70cbb74b063c4aaf8267efc6e4492, type: 2}
   MeleeAttack: {fileID: 11400000, guid: af2d4470d9303084d9bcd498fbf26e62, type: 2}
   Death: {fileID: 11400000, guid: a11079ff0d0a4df45bcc93fd3459b037, type: 2}
@@ -2404,7 +2401,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bae098b8af5f545b5145c4a4f67d24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Walk: {fileID: 11400000, guid: f601bbd89aaee9a4caf9daa07761f6cd, type: 2}
   RangeAttack: {fileID: 11400000, guid: 54b70cbb74b063c4aaf8267efc6e4492, type: 2}
   MeleeAttack: {fileID: 11400000, guid: af2d4470d9303084d9bcd498fbf26e62, type: 2}
   Death: {fileID: 11400000, guid: a11079ff0d0a4df45bcc93fd3459b037, type: 2}
@@ -3231,7 +3227,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bae098b8af5f545b5145c4a4f67d24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Walk: {fileID: 11400000, guid: f601bbd89aaee9a4caf9daa07761f6cd, type: 2}
   RangeAttack: {fileID: 11400000, guid: 54b70cbb74b063c4aaf8267efc6e4492, type: 2}
   MeleeAttack: {fileID: 11400000, guid: af2d4470d9303084d9bcd498fbf26e62, type: 2}
   Death: {fileID: 11400000, guid: a11079ff0d0a4df45bcc93fd3459b037, type: 2}
@@ -3372,7 +3367,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bae098b8af5f545b5145c4a4f67d24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Walk: {fileID: 11400000, guid: f601bbd89aaee9a4caf9daa07761f6cd, type: 2}
   RangeAttack: {fileID: 11400000, guid: 54b70cbb74b063c4aaf8267efc6e4492, type: 2}
   MeleeAttack: {fileID: 11400000, guid: af2d4470d9303084d9bcd498fbf26e62, type: 2}
   Death: {fileID: 11400000, guid: a11079ff0d0a4df45bcc93fd3459b037, type: 2}
@@ -18421,7 +18415,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bae098b8af5f545b5145c4a4f67d24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Walk: {fileID: 11400000, guid: f601bbd89aaee9a4caf9daa07761f6cd, type: 2}
   RangeAttack: {fileID: 11400000, guid: 54b70cbb74b063c4aaf8267efc6e4492, type: 2}
   MeleeAttack: {fileID: 11400000, guid: af2d4470d9303084d9bcd498fbf26e62, type: 2}
   Death: {fileID: 11400000, guid: a11079ff0d0a4df45bcc93fd3459b037, type: 2}
@@ -18655,7 +18648,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bae098b8af5f545b5145c4a4f67d24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Walk: {fileID: 11400000, guid: f601bbd89aaee9a4caf9daa07761f6cd, type: 2}
   RangeAttack: {fileID: 11400000, guid: 54b70cbb74b063c4aaf8267efc6e4492, type: 2}
   MeleeAttack: {fileID: 11400000, guid: af2d4470d9303084d9bcd498fbf26e62, type: 2}
   Death: {fileID: 11400000, guid: a11079ff0d0a4df45bcc93fd3459b037, type: 2}
@@ -18858,7 +18850,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bae098b8af5f545b5145c4a4f67d24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Walk: {fileID: 11400000, guid: f601bbd89aaee9a4caf9daa07761f6cd, type: 2}
   RangeAttack: {fileID: 11400000, guid: 54b70cbb74b063c4aaf8267efc6e4492, type: 2}
   MeleeAttack: {fileID: 11400000, guid: af2d4470d9303084d9bcd498fbf26e62, type: 2}
   Death: {fileID: 11400000, guid: a11079ff0d0a4df45bcc93fd3459b037, type: 2}
@@ -19711,7 +19702,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bae098b8af5f545b5145c4a4f67d24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Walk: {fileID: 11400000, guid: f601bbd89aaee9a4caf9daa07761f6cd, type: 2}
   RangeAttack: {fileID: 11400000, guid: 54b70cbb74b063c4aaf8267efc6e4492, type: 2}
   MeleeAttack: {fileID: 11400000, guid: af2d4470d9303084d9bcd498fbf26e62, type: 2}
   Death: {fileID: 11400000, guid: a11079ff0d0a4df45bcc93fd3459b037, type: 2}
@@ -19914,7 +19904,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bae098b8af5f545b5145c4a4f67d24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Walk: {fileID: 11400000, guid: f601bbd89aaee9a4caf9daa07761f6cd, type: 2}
   RangeAttack: {fileID: 11400000, guid: 54b70cbb74b063c4aaf8267efc6e4492, type: 2}
   MeleeAttack: {fileID: 11400000, guid: af2d4470d9303084d9bcd498fbf26e62, type: 2}
   Death: {fileID: 11400000, guid: a11079ff0d0a4df45bcc93fd3459b037, type: 2}
@@ -37609,7 +37598,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bae098b8af5f545b5145c4a4f67d24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Walk: {fileID: 11400000, guid: f601bbd89aaee9a4caf9daa07761f6cd, type: 2}
   RangeAttack: {fileID: 11400000, guid: 54b70cbb74b063c4aaf8267efc6e4492, type: 2}
   MeleeAttack: {fileID: 11400000, guid: af2d4470d9303084d9bcd498fbf26e62, type: 2}
   Death: {fileID: 11400000, guid: a11079ff0d0a4df45bcc93fd3459b037, type: 2}
@@ -38832,7 +38820,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bae098b8af5f545b5145c4a4f67d24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Walk: {fileID: 11400000, guid: f601bbd89aaee9a4caf9daa07761f6cd, type: 2}
   RangeAttack: {fileID: 11400000, guid: 54b70cbb74b063c4aaf8267efc6e4492, type: 2}
   MeleeAttack: {fileID: 11400000, guid: af2d4470d9303084d9bcd498fbf26e62, type: 2}
   Death: {fileID: 11400000, guid: a11079ff0d0a4df45bcc93fd3459b037, type: 2}
@@ -39035,7 +39022,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bae098b8af5f545b5145c4a4f67d24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Walk: {fileID: 11400000, guid: f601bbd89aaee9a4caf9daa07761f6cd, type: 2}
   RangeAttack: {fileID: 11400000, guid: 54b70cbb74b063c4aaf8267efc6e4492, type: 2}
   MeleeAttack: {fileID: 11400000, guid: af2d4470d9303084d9bcd498fbf26e62, type: 2}
   Death: {fileID: 11400000, guid: a11079ff0d0a4df45bcc93fd3459b037, type: 2}
@@ -40555,7 +40541,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bae098b8af5f545b5145c4a4f67d24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Walk: {fileID: 11400000, guid: f601bbd89aaee9a4caf9daa07761f6cd, type: 2}
   RangeAttack: {fileID: 11400000, guid: 54b70cbb74b063c4aaf8267efc6e4492, type: 2}
   MeleeAttack: {fileID: 11400000, guid: af2d4470d9303084d9bcd498fbf26e62, type: 2}
   Death: {fileID: 11400000, guid: a11079ff0d0a4df45bcc93fd3459b037, type: 2}
@@ -41286,7 +41271,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bae098b8af5f545b5145c4a4f67d24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Walk: {fileID: 11400000, guid: f601bbd89aaee9a4caf9daa07761f6cd, type: 2}
   RangeAttack: {fileID: 11400000, guid: 54b70cbb74b063c4aaf8267efc6e4492, type: 2}
   MeleeAttack: {fileID: 11400000, guid: af2d4470d9303084d9bcd498fbf26e62, type: 2}
   Death: {fileID: 11400000, guid: a11079ff0d0a4df45bcc93fd3459b037, type: 2}
@@ -41427,7 +41411,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bae098b8af5f545b5145c4a4f67d24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Walk: {fileID: 11400000, guid: f601bbd89aaee9a4caf9daa07761f6cd, type: 2}
   RangeAttack: {fileID: 11400000, guid: 54b70cbb74b063c4aaf8267efc6e4492, type: 2}
   MeleeAttack: {fileID: 11400000, guid: af2d4470d9303084d9bcd498fbf26e62, type: 2}
   Death: {fileID: 11400000, guid: a11079ff0d0a4df45bcc93fd3459b037, type: 2}
@@ -42072,7 +42055,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bae098b8af5f545b5145c4a4f67d24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Walk: {fileID: 11400000, guid: f601bbd89aaee9a4caf9daa07761f6cd, type: 2}
   RangeAttack: {fileID: 11400000, guid: 54b70cbb74b063c4aaf8267efc6e4492, type: 2}
   MeleeAttack: {fileID: 11400000, guid: af2d4470d9303084d9bcd498fbf26e62, type: 2}
   Death: {fileID: 11400000, guid: a11079ff0d0a4df45bcc93fd3459b037, type: 2}
@@ -42213,7 +42195,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bae098b8af5f545b5145c4a4f67d24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Walk: {fileID: 11400000, guid: f601bbd89aaee9a4caf9daa07761f6cd, type: 2}
   RangeAttack: {fileID: 11400000, guid: 54b70cbb74b063c4aaf8267efc6e4492, type: 2}
   MeleeAttack: {fileID: 11400000, guid: af2d4470d9303084d9bcd498fbf26e62, type: 2}
   Death: {fileID: 11400000, guid: a11079ff0d0a4df45bcc93fd3459b037, type: 2}
@@ -42946,7 +42927,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bae098b8af5f545b5145c4a4f67d24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Walk: {fileID: 11400000, guid: f601bbd89aaee9a4caf9daa07761f6cd, type: 2}
   RangeAttack: {fileID: 11400000, guid: 54b70cbb74b063c4aaf8267efc6e4492, type: 2}
   MeleeAttack: {fileID: 11400000, guid: af2d4470d9303084d9bcd498fbf26e62, type: 2}
   Death: {fileID: 11400000, guid: a11079ff0d0a4df45bcc93fd3459b037, type: 2}
@@ -43349,7 +43329,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bae098b8af5f545b5145c4a4f67d24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Walk: {fileID: 11400000, guid: f601bbd89aaee9a4caf9daa07761f6cd, type: 2}
   RangeAttack: {fileID: 11400000, guid: 54b70cbb74b063c4aaf8267efc6e4492, type: 2}
   MeleeAttack: {fileID: 11400000, guid: af2d4470d9303084d9bcd498fbf26e62, type: 2}
   Death: {fileID: 11400000, guid: a11079ff0d0a4df45bcc93fd3459b037, type: 2}
@@ -79472,7 +79451,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bae098b8af5f545b5145c4a4f67d24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Walk: {fileID: 11400000, guid: f601bbd89aaee9a4caf9daa07761f6cd, type: 2}
   RangeAttack: {fileID: 11400000, guid: 54b70cbb74b063c4aaf8267efc6e4492, type: 2}
   MeleeAttack: {fileID: 11400000, guid: af2d4470d9303084d9bcd498fbf26e62, type: 2}
   Death: {fileID: 11400000, guid: a11079ff0d0a4df45bcc93fd3459b037, type: 2}
@@ -86824,7 +86802,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Camera: {fileID: 2191803100146451368}
-  LevelName: World 2-9
+  World: 2
+  Level: 3
   NextLevelName: 
   MusicsGame: {fileID: 8300000, guid: 48596558b50e57e468857721b6086af4, type: 3}
   Checkpoints:
@@ -87303,7 +87282,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bae098b8af5f545b5145c4a4f67d24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Walk: {fileID: 11400000, guid: f601bbd89aaee9a4caf9daa07761f6cd, type: 2}
   RangeAttack: {fileID: 11400000, guid: 54b70cbb74b063c4aaf8267efc6e4492, type: 2}
   MeleeAttack: {fileID: 11400000, guid: af2d4470d9303084d9bcd498fbf26e62, type: 2}
   Death: {fileID: 11400000, guid: a11079ff0d0a4df45bcc93fd3459b037, type: 2}

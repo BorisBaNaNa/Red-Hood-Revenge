@@ -42,7 +42,8 @@ public class RangeAttack : MonoBehaviour
         if (inverseDirection)
             direction *= -1;
 
-        var projectile = AllServices.Instance.GetService<FactoryProjectile>().BuildProjectile<SimpleProjectile>(FirePoint.position);
+        FactoryProjectile factory = AllServices.Instance.GetService<FactoryProjectile>();
+        SimpleProjectile projectile = (SimpleProjectile)factory.BuildProjectile(FirePoint.position);
 
         projectile.Initialize(gameObject, direction, Vector2.zero);
     }

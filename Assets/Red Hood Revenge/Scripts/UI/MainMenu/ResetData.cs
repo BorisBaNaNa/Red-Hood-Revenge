@@ -16,20 +16,19 @@ public class ResetData : MonoBehaviour
         PlayerPrefs.DeleteAll();
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
         SoundManager.PlaySfx(_soundManager.SoundClick);
-        
+
         AllServices.Instance.GetService<GameManager>().SetupValues();
     }
 
     public void UnlockAll()
     {
-        //PlayerPrefs.SetInt(GlobalValue.WorldReached, int.MaxValue);
-        //for (int i = 1; i < 100; i++)
-        //{
-        //    PlayerPrefs.SetInt(i.ToString(), 10000);        //world i, unlock 10000 levels
-        //}
-        //SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
-        //SoundManager.PlaySfx(_soundManager.SoundClick);
-
-        Debug.Log("Not implemented");
+        SaveInfoManager.SaveWorldsOpened(int.MaxValue);
+        int worldCount = AllServices.Instance.GetService<MainMenu>().WorldLevel.Length;
+        for (int i = 0; i < worldCount; i++)
+        {
+            SaveInfoManager.SaveLevelsOpened(i + 1, 1000);
+        }
+        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
+        SoundManager.PlaySfx(_soundManager.SoundClick);
     }
 }

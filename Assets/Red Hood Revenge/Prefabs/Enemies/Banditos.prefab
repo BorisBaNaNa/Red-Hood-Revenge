@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7181425126378813019}
   - component: {fileID: 7181425126378813018}
   m_Layer: 8
-  m_Name: Enemy
+  m_Name: Banditos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

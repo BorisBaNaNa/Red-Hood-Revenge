@@ -151,7 +151,7 @@ public class EnemyAI : MonoBehaviour, ICanTakeDamage, IPlayerRespawnListener
             return;
 
         _fireIn = fireRate;
-        var _projectile = (Projectile)Instantiate(projectile, PointSpawn.position, Quaternion.identity);
+        var _projectile = AllServices.Instance.GetService<FactoryProjectile>().BuildProjectile(projectile, PointSpawn.position);
         _audioSource.PlayOneShot(FireSound);
         EnemyAnim.PlayRangeAttackAnim();
         _projectile.Initialize(gameObject, _direction, Vector2.zero);

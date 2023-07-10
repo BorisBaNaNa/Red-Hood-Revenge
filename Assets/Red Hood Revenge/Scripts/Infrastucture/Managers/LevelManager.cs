@@ -16,6 +16,7 @@ public class LevelManager : MonoBehaviour, IService
         get => _playerRangeAttack.BulletCount;
         set => _playerRangeAttack.BulletCount = value;
     }
+    public string LevelName { get; set; }
 
     public Player Player { get; set; }
     public int Point { get; set; }
@@ -24,7 +25,8 @@ public class LevelManager : MonoBehaviour, IService
     public CinemachineVirtualCamera Camera;
 
     [Header("Level Paremeter")]
-    public string LevelName = "World 01-01";
+    public int World = 0;
+    public int Level = 0;
     public string NextLevelName;
 
     [Header("Level settings")]
@@ -108,10 +110,13 @@ public class LevelManager : MonoBehaviour, IService
     {
         AllServices.Instance.RegisterService(this);
         AllServices.Instance.GetService<FactoryFloatText>().SetTextParent(_floatingTextParent);
+        GameManager.WorldPlaying = World;
+        GameManager.LevelPlaying = Level;
 
         if (Camera == null)
             Camera = FindObjectOfType<CinemachineVirtualCamera>();
         CheckpointsInit();
+        LevelName = $"World {World:00}-{Level:00}";
     }
 
     private void CheckpointsInit()
@@ -119,7 +124,7 @@ public class LevelManager : MonoBehaviour, IService
         if (Checkpoints.Count == 0)
             return;
 
-        Checkpoints.Sort(point => point.transform.position.x);
+        //Checkpoints.Sort(point => point.transform.position.x);
         _currentCheckpointIndex = 0;
     }
 
@@ -141,8 +146,8 @@ public class LevelManager : MonoBehaviour, IService
         if (_currentCheckpointIndex + 1 >= Checkpoints.Count)
             return;
 
-        var distanceToNextCheckPoint = Checkpoints[_currentCheckpointIndex + 1].transform.position.x - Player.transform.position.x;
-        if (distanceToNextCheckPoint >= 0)
+        var distanceToNextCheckPoint = Vector2.Distance(Checkpoints[_currentCheckpointIndex + 1].transform.position, Player.transform.position);
+        if (distanceToNextCheckPoint < 0f || distanceToNextCheckPoint > 1f)
             return;
 
         _currentCheckpointIndex++;

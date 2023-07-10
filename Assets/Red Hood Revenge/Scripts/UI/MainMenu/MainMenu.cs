@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class MainMenu : MonoBehaviour
+public class MainMenu : MonoBehaviour, IService
 {
     [Header("MenuPanels")]
     public GameObject StartMenu;
@@ -46,6 +46,7 @@ public class MainMenu : MonoBehaviour
         ActivateSliders();
         InitAnimatorsInfo();
         InitHelpers();
+        AllServices.Instance.RegisterService(this);
         //StartCoroutine(InitSoundAndMusic());
     }
 

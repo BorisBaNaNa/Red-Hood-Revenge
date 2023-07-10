@@ -1,3 +1,4 @@
+using Spine;
 using Spine.Unity;
 using System.Collections;
 using System.Collections.Generic;
@@ -5,7 +6,8 @@ using UnityEngine;
 
 public class EnemyAnimController : MonoBehaviour
 {
-    public AnimationReferenceAsset Walk, RangeAttack, MeleeAttack, Death;
+    public AnimationReferenceAsset RangeAttack, MeleeAttack, Death;
+    private Spine.Animation _baseAnim;
 
     [SerializeField]
     private SkeletonAnimation _skeletonAnimation;
@@ -13,6 +15,7 @@ public class EnemyAnimController : MonoBehaviour
     private void Awake()
     {
         _skeletonAnimation = _skeletonAnimation != null ? _skeletonAnimation : GetComponent<SkeletonAnimation>();
+        _baseAnim = _skeletonAnimation.AnimationState.GetCurrent(0).Animation;
     }
 
     public void PlayRangeAttackAnim()
@@ -33,5 +36,5 @@ public class EnemyAnimController : MonoBehaviour
     }
 
     public void BackToWalkAnim(float delay = 0f)
-        => _skeletonAnimation.AnimationState.AddAnimation(0, Walk, true, delay);
+        => _skeletonAnimation.AnimationState.AddAnimation(0, _baseAnim, true, delay);
 }
